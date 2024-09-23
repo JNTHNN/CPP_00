@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 11:42:29 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/09/23 13:32:26 by jgasparo         ###   ########.fr       */
+/*   Created: 2024/09/23 13:44:26 by jgasparo          #+#    #+#             */
+/*   Updated: 2024/09/23 15:35:32 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 #include <iostream>
 
-class PhoneBook
+class Contact
 {
-private:
-	/* data */
-public:
-	PhoneBook(/* args */);
-	~PhoneBook();
+	
+	public:
+		void set_values(char , char , char , char , char , char);
+	private:
+		char	first_name, last_name, nickname, phone_number, secret;
 };
 
-PhoneBook::PhoneBook(/* args */)
+void	Contact::set_values(char fn, char ln, char nn, char pn, char s)
 {
-	std::cout << "Ca construit" << std::endl;
+}
+
+Contact::Contact(void)
+{
+	std::cout << "Initialisation du contact" << std::endl;
 	return ;
 }
 
-PhoneBook::~PhoneBook()
+Contact::~Contact(void)
 {
-	std::cout << "Ca detruit" << std::endl;
+	std::cout << "Suppression du contact";
 	return ;
 }
-
 #endif

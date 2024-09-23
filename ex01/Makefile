@@ -6,7 +6,7 @@
 #    By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/23 09:35:11 by jgasparo          #+#    #+#              #
-#    Updated: 2024/09/23 11:41:23 by jgasparo         ###   ########.fr        #
+#    Updated: 2024/09/23 13:49:42 by jgasparo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,20 +15,20 @@ NAME := phonebook
 CPP := c++
 CPPFLAGS := -Wall -Wextra -Werror -std=c++98
 
-SRC := megaphone.cpp
+SRC := phonebook.cpp main.cpp contact.cpp
 
 all: $(NAME)
 
 $(NAME): $(SRC)
-		@echo CREATING MEGAPHONE
+		@echo CREATING PHONEBOOK
 		@$(CPP) $(CPPFLAGS) -o $(NAME) $(SRC)
 		@sleep 1
 		@tput cuu1 dl1
-		@echo "MEGAPHONE CREATED  " 
+		@echo "PHONEBOOK CREATED  " 
 
 clean:
 	@$(RM) $(NAME)
-	@echo MEGAPHONE DESTROYED BYE !
+	@echo PHONEBOOK DESTROYED BYE !
 	@sleep 1
 	@tput cuu1 dl1
 
