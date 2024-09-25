@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:44:26 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/09/23 15:35:32 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/09/25 12:01:43 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,26 @@
 
 class Contact
 {
+	std::string	first_name;
+	std::string	last_name;
+	std::string	nickname;
+	std::string	phone_number;
+	std::string	secret;
 	
 	public:
-		void set_values(char , char , char , char , char , char);
-	private:
-		char	first_name, last_name, nickname, phone_number, secret;
+		Contact();
+		void ShowContact();
+		void	SetContact();
+	// a declarer ici mais a faire dans contact.cpp
+	// faire des get pour acceder aux membres privés (en const pour la sécu)
+	
+	// faire des set pour modifier les membres privés 
 };
 
-void	Contact::set_values(char fn, char ln, char nn, char pn, char s)
-{
-}
 
-Contact::Contact(void)
-{
-	std::cout << "Initialisation du contact" << std::endl;
-	return ;
-}
-
-Contact::~Contact(void)
-{
-	std::cout << "Suppression du contact";
-	return ;
-}
+// Contact::~Contact(void)
+// {
+// 	std::cout << "Suppression du contact";
+// 	return ;
+// }
 #endif

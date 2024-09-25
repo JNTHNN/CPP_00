@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 11:42:29 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/09/23 13:32:26 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/09/25 10:24:15 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@
 
 class PhoneBook
 {
-private:
-	/* data */
 public:
 	PhoneBook(/* args */);
 	~PhoneBook();
+private:
+	Contact m_contact[8];
+	
 };
 
 PhoneBook::PhoneBook(/* args */)
