@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:44:26 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/09/25 12:01:43 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/09/26 10:07:51 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,32 @@
 # define CONTACT_HPP
 
 #include <iostream>
+# define EMPTY ""
 
 class Contact
 {
-	std::string	first_name;
-	std::string	last_name;
-	std::string	nickname;
-	std::string	phone_number;
-	std::string	secret;
 	
 	public:
 		Contact();
-		void ShowContact();
-		void	SetContact();
+		~Contact();
+
+		void 		ShowContact();
+		void		SetContact();
+		
+		static int	getNbContact(void);
+
 	// a declarer ici mais a faire dans contact.cpp
 	// faire des get pour acceder aux membres privés (en const pour la sécu)
 	
 	// faire des set pour modifier les membres privés 
+
+	private:
+		std::string	_first_name;
+		std::string	_last_name;
+		std::string	_nickname;
+		std::string	_phone_number;
+		std::string	_secret;
+		static int	_nbContact; // attribut non membres qui va permettre de compter le nb de contact si 8 -> reset
 };
 
-
-// Contact::~Contact(void)
-// {
-// 	std::cout << "Suppression du contact";
-// 	return ;
-// }
 #endif

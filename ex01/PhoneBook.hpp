@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 11:42:29 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/09/25 10:24:15 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/09/26 12:04:40 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,20 @@
 # define PHONEBOOK_HPP
 
 #include <iostream>
+#include "Contact.hpp"
 
 class PhoneBook
 {
 public:
+	// static Contact Contact[8]; trouver le moyen de l'implementer ici
 	PhoneBook(/* args */);
 	~PhoneBook();
+
+	static int	setindex(int i);
+	
 private:
-	Contact m_contact[8];
+	static int	_Index;
 	
 };
-
-PhoneBook::PhoneBook(/* args */)
-{
-	std::cout << "Ca construit" << std::endl;
-	return ;
-}
-
-PhoneBook::~PhoneBook()
-{
-	std::cout << "Ca detruit" << std::endl;
-	return ;
-}
 
 #endif

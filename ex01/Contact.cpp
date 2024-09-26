@@ -6,42 +6,57 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:53:51 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/09/25 12:23:48 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/09/26 11:06:53 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-Contact::Contact(void)
+// faire l'init avec la methode : 
+Contact::Contact(void) : _first_name(EMPTY), _last_name(EMPTY), _nickname(EMPTY), _phone_number(EMPTY), _secret(EMPTY)
 {
 	std::cout << "Initialisation du contact" << std::endl;
-	this->first_name = "";
-	this->last_name = "";
-	this->nickname = "";
-	this->phone_number = "";
-	this->secret = "";
 	return ;
+}
+
+Contact::~Contact()
+{
+	std::cout << "Ca detruit le contact" << std::endl;
+	Contact::_nbContact -= 1;
+	return ;
+}
+
+int	Contact::getNbContact(void)
+{
+	if (Contact::_nbContact >= 8)
+		Contact::_nbContact = 0;
+	return Contact::_nbContact;
 }
 
 void Contact::ShowContact()
 {
-	std::cout << "First name : " << first_name << std::endl;
-	std::cout << "Last Name : " << last_name << std::endl;
-	std::cout << "Nickname : " << nickname << std::endl;
-	std::cout << "Phone number : " << phone_number << std::endl;
-	std::cout << "Darkest Secret : " << secret << std::endl;
+	std::cout << "First name : " << _first_name << std::endl;
+	std::cout << "Last Name : " << _last_name << std::endl;
+	std::cout << "Nickname : " << _nickname << std::endl;
+	std::cout << "Phone number : " << _phone_number << std::endl;
+	std::cout << "Darkest Secret : " << _secret << std::endl;
+	Contact::_nbContact += 1; // permet de savoir combien ya de contact
 	return ;
 }
 void	Contact::SetContact(void)
 {
-    	std::cout << "Entrez le prénom: ";
-        std::getline(std::cin, first_name);
-        std::cout << "Entrez le nom de famille: ";
-        std::getline(std::cin, last_name);
-        std::cout << "Entrez le surnom: ";
-        std::getline(std::cin, nickname);
-        std::cout << "Entrez le numéro de téléphone: ";
-        std::getline(std::cin, phone_number);
-        std::cout << "Entrez le secret: ";
-        std::getline(std::cin, secret);
+		std::cout << "Enter first name: ";
+		std::getline(std::cin, _first_name);
+		std::cout << "Enter last name: ";
+		std::getline(std::cin, _last_name);
+		std::cout << "Enter nickname: ";
+		std::getline(std::cin, _nickname);
+		std::cout << "Enter phone number: ";
+		std::getline(std::cin, _phone_number);
+		std::cout << "Enter his darkest secret: ";
+		std::getline(std::cin, _secret);
+		std::cout << "Contact successfully added" << std::endl;
+		return ;
 }
+
+int	Contact::_nbContact = 0;
