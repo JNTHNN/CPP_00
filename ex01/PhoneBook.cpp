@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 11:45:03 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/09/26 11:24:58 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/09/27 11:10:04 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	PhoneBook::setindex(int i)
 
 int	PhoneBook::_Index = -1;
 
-PhoneBook::PhoneBook(/* args */)
+PhoneBook::PhoneBook()
 {
-	std::cout << "Ca construit" << std::endl;
+	std::cout << "Ca construit le phonebook" << std::endl;
 	return ;
 }
 

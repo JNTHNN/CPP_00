@@ -6,11 +6,12 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:53:51 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/09/26 11:06:53 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/09/27 11:41:52 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+#include <iomanip>
 
 // faire l'init avec la methode : 
 Contact::Contact(void) : _first_name(EMPTY), _last_name(EMPTY), _nickname(EMPTY), _phone_number(EMPTY), _secret(EMPTY)
@@ -35,18 +36,25 @@ int	Contact::getNbContact(void)
 
 void Contact::ShowContact()
 {
-	std::cout << "First name : " << _first_name << std::endl;
-	std::cout << "Last Name : " << _last_name << std::endl;
-	std::cout << "Nickname : " << _nickname << std::endl;
-	std::cout << "Phone number : " << _phone_number << std::endl;
-	std::cout << "Darkest Secret : " << _secret << std::endl;
+	// trouver moyen de faire une boucle
+	std::cout << std::setfill (' ') << std::setw (10) << _first_name << "|";
+	std::cout << std::setfill (' ') << std::setw (10) << _last_name << "|";
+	std::cout << std::setfill (' ') << std::setw (10) << _nickname << "|";
+	std::cout << std::setfill (' ') << std::setw (10) << _phone_number << "|";
+	std::cout << std::setfill (' ') << std::setw (10) << _secret << std::endl;
 	Contact::_nbContact += 1; // permet de savoir combien ya de contact
 	return ;
 }
 void	Contact::SetContact(void)
 {
+		// trouver moyen de faire boucle pour add chaque donnee + tronquer
 		std::cout << "Enter first name: ";
 		std::getline(std::cin, _first_name);
+		if (_first_name.length() >= 10)
+		{
+			_first_name.resize(9);
+			_first_name.resize(10,'.');
+		}
 		std::cout << "Enter last name: ";
 		std::getline(std::cin, _last_name);
 		std::cout << "Enter nickname: ";

@@ -6,11 +6,12 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:29:39 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/09/26 12:07:09 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/09/27 11:29:08 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
@@ -19,15 +20,16 @@
 
 int	main(void)
 {
+	PhoneBook	PhoneBook;
 	Contact Contact[8];
-	std::string	test;
+	std::string	option;
 	std::cout << "WELCOME IN THE PHONEBOOK" << std::endl;
 	std::cout << "CHOOSE YOUR OPTION : ADD / SEARCH / EXIT" << std::endl;
 	
 	while (true)
 	{
-		std::getline(std::cin, test);
-		if (test == "ADD") // voir si il existe un strncmp car "ADD " ne fonctionne pas
+		std::getline(std::cin, option); // a proteger du ctrl + d
+		if (option == "ADD") // voir si il existe un strncmp car "ADD " ne fonctionne pas
 		{
 			system("clear");
 			std::cout << "NB: " << Contact::getNbContact() << std::endl;
@@ -35,19 +37,24 @@ int	main(void)
 			Contact[Contact::getNbContact()].SetContact();
 			Contact[Contact::getNbContact()].ShowContact();
 		}
-		if (test == "EXIT")
+		if (option == "EXIT")
 			break ;
-		if (test == "SEARCH")
+		if (option == "SEARCH")
 		{
 			std::cout << "Which contact do you want to see ? ";
 			// CHECKER SI L'INDEX EST COMPRIS ENTRE 1 ET 8
-			std::getline(std::cin, test);
-			Contact[PhoneBook::setindex(std::stoi(test))].ShowContact(); // need to protect stoi avec les char lol
+			std::getline(std::cin, option);
+			Contact[PhoneBook::setindex(std::stoi(option))].ShowContact(); // need to protect stoi avec les char lol
 		}
+		if (option.empty())
+			std::cout << "Fill please ..." << std::endl;
 		else
+		{
+			std::cout << "Unrecognized Option, Try Again !" << std::endl;
 			continue;
+		}
 	}
 	std::cout << "NB Contact : " << Contact::getNbContact() << std::endl;
-	std::cout << "Test contient : " << test << std::endl;
+	std::cout << "option contient : " << option << std::endl;
 	return 0;
 }
