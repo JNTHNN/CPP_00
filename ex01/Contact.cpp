@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:53:51 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/09/27 11:41:52 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/09/27 14:50:25 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void Contact::ShowContact()
 }
 void	Contact::SetContact(void)
 {
+		// verifier ce qui est rentrer ex pour le num
 		// trouver moyen de faire boucle pour add chaque donnee + tronquer
 		std::cout << "Enter first name: ";
 		std::getline(std::cin, _first_name);

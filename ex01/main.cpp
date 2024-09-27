@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:29:39 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/09/27 11:29:08 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/09/27 14:59:21 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	main(void)
 		{
 			std::cout << "Which contact do you want to see ? ";
 			// CHECKER SI L'INDEX EST COMPRIS ENTRE 1 ET 8
+			// Implementer ALL pour montrer tout les contacts ?
 			std::getline(std::cin, option);
 			Contact[PhoneBook::setindex(std::stoi(option))].ShowContact(); // need to protect stoi avec les char lol
 		}
