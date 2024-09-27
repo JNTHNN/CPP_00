@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:29:39 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/09/27 14:59:21 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/09/27 23:43:38 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,41 +21,51 @@
 int	main(void)
 {
 	PhoneBook	PhoneBook;
-	Contact Contact[8];
-	std::string	option;
-	std::cout << "WELCOME IN THE PHONEBOOK" << std::endl;
-	std::cout << "CHOOSE YOUR OPTION : ADD / SEARCH / EXIT" << std::endl;
 	
+	PhoneBook.welcome();	
 	while (true)
 	{
-		std::getline(std::cin, option); // a proteger du ctrl + d
-		if (option == "ADD") // voir si il existe un strncmp car "ADD " ne fonctionne pas
+
+		PhoneBook.choose_option();
+		std::getline(std::cin, PhoneBook.option);
+		if (std::cin.eof())
+		{
+			std::cin.clear();
+			std::cerr << "Input ^D detected. Exiting..." << std::endl;
+			break;
+		}
+		if (PhoneBook.option == "ADD") // voir si il existe un strncmp car "ADD " ne fonctionne pas
 		{
 			system("clear");
 			std::cout << "NB: " << Contact::getNbContact() << std::endl;
-			// contact[Contact::getNbContact()].Contact();
-			Contact[Contact::getNbContact()].SetContact();
-			Contact[Contact::getNbContact()].ShowContact();
+			PhoneBook.Contacts[Contact::getNbContact()].SetContact();
 		}
-		if (option == "EXIT")
+		if (PhoneBook.option == "EXIT")
 			break ;
-		if (option == "SEARCH")
+		if (PhoneBook.option == "SEARCH")
 		{
-			std::cout << "Which contact do you want to see ? ";
+			std::cout << "Which contact do you want to see (1-8 or ALL) ? ";
 			// CHECKER SI L'INDEX EST COMPRIS ENTRE 1 ET 8
 			// Implementer ALL pour montrer tout les contacts ?
-			std::getline(std::cin, option);
-			Contact[PhoneBook::setindex(std::stoi(option))].ShowContact(); // need to protect stoi avec les char lol
+			std::getline(std::cin, PhoneBook.option);
+			if (PhoneBook.option == "ALL")
+				PhoneBook.option = "9";
+			// if (isdigit(PhoneBook))
+			// {
+			// 	std::cout << "NON" << std::endl;
+			// }
+			
+			PhoneBook.Contacts[PhoneBook::setindex(std::stoi(PhoneBook.option))].ShowContact(std::stoi(PhoneBook.option)); // need to protect stoi avec les char lol
+			continue;
 		}
-		if (option.empty())
-			std::cout << "Fill please ..." << std::endl;
+		if (PhoneBook.option.empty())
+			std::cerr << "Fill please ..." << std::endl;
 		else
 		{
-			std::cout << "Unrecognized Option, Try Again !" << std::endl;
+			std::cerr << "Unrecognized Option, Try Again !" << std::endl;
 			continue;
 		}
 	}
-	std::cout << "NB Contact : " << Contact::getNbContact() << std::endl;
-	std::cout << "option contient : " << option << std::endl;
+	// std::cout << "PHONEBOOK WILL SELF-DESTRUCT IN 3 ... 2 ... 1 ..." << Contact::getNbContact() << std::endl;
 	return 0;
 }

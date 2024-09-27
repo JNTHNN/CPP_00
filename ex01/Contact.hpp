@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:44:26 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/09/26 10:07:51 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/09/27 20:09:28 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Contact
 		Contact();
 		~Contact();
 
-		void 		ShowContact();
+		void 		ShowContact(int index);
 		void		SetContact();
 		
 		static int	getNbContact(void);
@@ -39,7 +39,7 @@ class Contact
 		std::string	_nickname;
 		std::string	_phone_number;
 		std::string	_secret;
-		static int	_nbContact; // attribut non membres qui va permettre de compter le nb de contact si 8 -> reset
+		static int	_nbContact; // attribut non membres qui va permettre de compter le nb de contact si 8 -> reseta
+		static const std::string	_fieldNames[5];
 };
-
 #endif
