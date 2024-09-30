@@ -4,3 +4,6 @@ proteger getline pour ctrl+d
 
 Regles : Ajout - recherche - suppression
 8 Contacts max -> 9eme supprime le plus ancien (1er)
+
+fichier .h pour les macros
+maj les msgs d'erreur
