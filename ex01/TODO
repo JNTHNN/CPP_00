@@ -9,3 +9,10 @@ fichier .h pour les macros
 maj les msgs d'erreur
 
 protect getline dans ADD
+Verifier que tous les msgs terminent par un retour a la ligne
+voir pour introduire les .h dans le makefile (regle)
+
+faire safeStoi pour phonebook.cpp (existe via phonebook::check_index)
+
+fix ctrl d dans SEARCH : pb avec le \0 en boucle -> trigger tous les msgs d'err
+trouver un moyen de clear/reset std::cin;

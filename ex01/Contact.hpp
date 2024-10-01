@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:44:26 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/09/27 20:09:28 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/10/01 11:16:39 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Contact
 		~Contact();
 
 		void 		ShowContact(int index);
-		void		SetContact();
+		bool		SetContact();
 		
 		static int	getNbContact(void);
 

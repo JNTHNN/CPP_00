@@ -6,7 +6,7 @@
 #    By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/23 09:35:11 by jgasparo          #+#    #+#              #
-#    Updated: 2024/09/26 11:22:26 by jgasparo         ###   ########.fr        #
+#    Updated: 2024/10/01 10:51:26 by jgasparo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME := phonebook
 CPP := c++
 CPPFLAGS := -Wall -Wextra -Werror -std=c++98
 
-SRC := PhoneBook.cpp main.cpp Contact.cpp
+SRC := PhoneBook.cpp main.cpp Contact.cpp utils.cpp
 
 all: $(NAME)
 
