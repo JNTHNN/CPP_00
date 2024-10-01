@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 11:42:29 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/09/30 13:30:10 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/10/01 09:05:25 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class PhoneBook
 		Contact 	Contacts[8];
 
 		std::string	option;
+		static int			_index;
 
 		static int	setindex(int i);
 		void		welcome() const;
@@ -33,7 +34,6 @@ class PhoneBook
 
 		
 	private:
-		static int	_Index;
 		
 };
 

@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:29:39 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/09/30 15:39:48 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/10/01 09:26:17 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,10 @@ int	main(void)
 		if (PhoneBook.option == "ADD") // voir si il existe un strncmp car "ADD " ne fonctionne pas
 		{
 			system("clear");
-			std::cout << "NB: " << Contact::getNbContact() << "INDEX : " << PhoneBook::setindex(Contact::getNbContact()) << std::endl;
-			PhoneBook.Contacts[PhoneBook::setindex(Contact::getNbContact())].SetContact();
+			PhoneBook._index = PhoneBook::setindex(PhoneBook._index);
+			std::cout << "NB: " << Contact::getNbContact() << " INDEX : " << PhoneBook._index << std::endl;
+			PhoneBook.Contacts[PhoneBook._index].SetContact();
+			PhoneBook._index++;
 		}
 		if (PhoneBook.option == "EXIT")
 			break ;
@@ -59,13 +61,13 @@ int	main(void)
 			std::getline(std::cin, PhoneBook.option);
 			if (!PhoneBook.option.compare("ALL"))
 			{
-				for (int i = 0; i < Contact::getNbContact(); ++i)
-					PhoneBook.Contacts[PhoneBook::setindex(i + 1)].ShowContact(i + 1);
+				for (int i = 0; i < Contact::getNbContact(); i++)
+					PhoneBook.Contacts[i].ShowContact(i + 1);
 				continue;
 			}
 			if (!PhoneBook.check_index(PhoneBook.option))
 				continue;
-			PhoneBook.Contacts[PhoneBook::setindex(std::stoi(PhoneBook.option))].ShowContact(std::stoi(PhoneBook.option)); // need to protect stoi avec les char lol
+			PhoneBook.Contacts[std::stoi(PhoneBook.option) - 1].ShowContact(std::stoi(PhoneBook.option)); // need to protect stoi avec les char lol
 			continue;
 		}
 		if (PhoneBook.option.empty())

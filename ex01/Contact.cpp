@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:53:51 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/09/30 14:19:53 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/10/01 09:31:34 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ Contact::~Contact()
 
 int	Contact::getNbContact(void)
 {
-	// if (Contact::_nbContact >= 8)
-	// 	Contact::_nbContact = 0;
+	if (Contact::_nbContact >= 8)
+		return Contact::_nbContact = 8;
 	return Contact::_nbContact;
 }
 
@@ -90,7 +90,7 @@ void Contact::ShowContact(int index)
 		for (int i = 1; i <= Contact::getNbContact(); ++i)
 		{
 			std::cout << "Affichage du contact : " << i << std::endl;
-			ShowContact(i); // Appel de la fonction pour afficher chaque contact
+			ShowContact(i); 
 		}
 	}
 	else

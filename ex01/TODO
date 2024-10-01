@@ -7,3 +7,5 @@ Regles : Ajout - recherche - suppression
 
 fichier .h pour les macros
 maj les msgs d'erreur
+
+protect getline dans ADD

@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 11:45:03 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/09/30 15:31:10 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/10/01 09:28:49 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 int	PhoneBook::setindex(int i)
 {
-	if (Contact::getNbContact() >= 9)
-		return PhoneBook::_Index = (i - 1) % 8;
-	return PhoneBook::_Index = 0;
+	if (Contact::getNbContact() >= 8)
+		return PhoneBook::_index = i % 8;
+	return PhoneBook::_index;
 }
 
-int	PhoneBook::_Index = 0;
+int	PhoneBook::_index = 0;
 
 PhoneBook::PhoneBook()
 {
