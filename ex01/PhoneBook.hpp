@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 11:42:29 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/10/01 10:06:20 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:26:57 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,16 @@ class PhoneBook
 		Contact 	Contacts[8];
 
 		std::string	option;
-		static int			_index;
+		static int	index;
+		static bool	exit;
+
 
 		static int	setindex(int i);
 		void		welcome() const;
-		void		choose_option() const;
-		bool		check_index(std::string option);
-		bool		get_option();
-		bool		set_option();
+		bool		chooseOption() const;
+		bool		checkIndex(std::string option);
+		bool		getOption();
+		bool		setOption();
 		
 };
 
