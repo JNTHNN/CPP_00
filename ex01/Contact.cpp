@@ -6,14 +6,14 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:53:51 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/10/02 11:29:27 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/10/04 17:09:19 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.hpp"
 
 int					Contact::_nbContact = 0;
-const std::string	Contact::_fieldNames[5] = {"first name", "last name", "nickname", "phone number", "darkest secret"};
+const std::string	Contact::_fieldNames[5] = {"FIRST NAME", "LAST NAME", "NICKNAME", "PHONE NUMBER", "DARKEST SECRET"};
 
 Contact::Contact(void) : _first_name(EMPTY), _last_name(EMPTY), _nickname(EMPTY), _phone_number(EMPTY), _secret(EMPTY)
 {
@@ -28,23 +28,23 @@ Contact::~Contact()
 
 int	Contact::getNbContact(void)
 {
-	if (Contact::_nbContact >= 8)
-		return Contact::_nbContact = 8;
-	return Contact::_nbContact;
+	if (_nbContact >= 8)
+		return _nbContact = 8;
+	return _nbContact;
 }
 
-void Contact::showContact(int index)
+void Contact::showContact(int _index)
 {
 	std::string* fieldDatas[3] = {&_first_name, &_last_name, &_nickname};
 
-	if (index >= 1 && index <= 8)
+	if (_index >= 1 && _index <= 8)
 	{
-		if (Contact::getNbContact() < index)
+		if (getNbContact() < _index)
 		{
 			std::cout << NOT_FILLED << std::endl;
 			return;
 		}
-		std::cout << std::setfill(' ') << std::setw(10) << index << PIPE;
+		std::cout << std::setfill(' ') << std::setw(10) << _index << PIPE;
 		for (int i = 0; i < 3; i++)
 			std::cout << std::setfill(' ') << std::setw(10) << *fieldDatas[i] << PIPE;
 		std::cout << std::endl;
@@ -63,7 +63,7 @@ bool	Contact::setContact(void)
 
 		while (i < 5)
 		{
-			std::cout << ENTER << Contact::_fieldNames[i] << D_DOT;
+			std::cout << ENTER << _fieldNames[i] << D_DOT;
 			if (!safeGetline(*fieldDatas[i]))
 				return false;
 			if (fieldDatas[i]->empty())
@@ -80,6 +80,6 @@ bool	Contact::setContact(void)
 		}
 		system(CLEAR);
 		std::cout << SUCCESS << std::endl;
-		Contact::_nbContact += 1;
+		_nbContact += 1;
 		return true;
 }

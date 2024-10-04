@@ -6,20 +6,18 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 11:45:03 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/10/02 11:26:57 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/10/04 17:08:03 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.hpp"
 
-int		PhoneBook::index = 0;
-bool	PhoneBook::exit = false;
+int		PhoneBook::_index = 0;
+bool	PhoneBook::_exit = false;
 
-int	PhoneBook::setindex(int i)
+bool	PhoneBook::getExit(void) const
 {
-	if (Contact::getNbContact() >= 8)
-		return PhoneBook::index = i % 8;
-	return PhoneBook::index;
+	return _exit;
 }
 
 PhoneBook::PhoneBook(void)
@@ -47,11 +45,11 @@ bool	PhoneBook::chooseOption(void) const
 	return true;
 }
 
-bool	PhoneBook::checkIndex(std::string option)
+bool	PhoneBook::checkIndex(std::string _option)
 {
 	try
 	{
-		std::stoi(option);
+		std::stoi(_option);
 	}
 	catch (const std::invalid_argument &test)
 	{
@@ -68,40 +66,42 @@ bool	PhoneBook::checkIndex(std::string option)
 
 bool	PhoneBook::getOption(void)
 {
-	return safeGetline(PhoneBook::option);
+	return safeGetline(_option);
 }
 
 bool	PhoneBook::setOption(void)
 {
-	if (!PhoneBook::option.compare(ADD))
+	if (!_option.compare(ADD))
 	{
 		system(CLEAR);
-		PhoneBook::index = PhoneBook::setindex(PhoneBook::index);
-		if (PhoneBook::Contacts[PhoneBook::index].setContact())
+		_index %= 8;
+		if (Contacts[_index++].setContact())
 			return false;
-		PhoneBook::index++;
 		return true;
 	}
-	if (!PhoneBook::option.compare(EXIT))
-		return PhoneBook::exit = true;
-	if (!PhoneBook::option.compare(SEARCH))
+	if (!_option.compare(EXIT))
+	{
+		_exit = true;
+		return true;
+	}
+	if (!_option.compare(SEARCH))
 	{
 		system(CLEAR);
 		std::cout << WHICH << std::endl;
-		if (!safeGetline(PhoneBook::option))
+		if (!safeGetline(_option))
 			return false;
-		if (!PhoneBook::option.compare(ALL))
+		if (!_option.compare(ALL))
 		{
 			for (int i = 0; i < Contact::getNbContact(); i++)
-				PhoneBook::Contacts[i].showContact(i + 1);
+				Contacts[i].showContact(i + 1);
 			return true;
 		}
-		if (!PhoneBook::checkIndex(PhoneBook::option))
+		if (!checkIndex(_option))
 			return true;
-		PhoneBook::Contacts[std::stoi(PhoneBook::option) - 1].showContact(std::stoi(PhoneBook::option));
+		Contacts[std::stoi(_option) - 1].showContact(std::stoi(_option));
 		return true;
 	}
-	if (PhoneBook::option.empty())
+	if (_option.empty())
 		std::cerr << FILL << std::endl;
 	else
 	{
