@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:39:12 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/10/04 13:56:12 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/10/08 20:16:56 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
+#define	ERROR			-1
 #define EMPTY 			""
 #define	PIPE			"|"
 #define	D_DOT			" : "
@@ -41,6 +42,8 @@
 #define	NOT_FILLED		"CONTACT NOT FILLED"
 #define	WRONG			"WRONG INDEX"
 #define	EMPTY_FIELD		"EMPTY FIELDS NOT ACCEPTED, TRY AGAIN"
+
 bool	safeGetline(std::string &str);
+int		safeAtoi(const std::string& str);
 
 #endif

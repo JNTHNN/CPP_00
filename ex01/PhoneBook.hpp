@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 11:42:29 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/10/04 17:06:15 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/10/08 20:18:40 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class PhoneBook
 
 		void		welcome() const;
 		bool		chooseOption() const;
-		bool		checkIndex(std::string _option);
 		bool		getOption();
 		bool		setOption();
 		bool		getExit() const;

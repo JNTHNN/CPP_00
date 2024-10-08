@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 11:45:03 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/10/04 17:08:03 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/10/08 20:18:23 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,25 +45,6 @@ bool	PhoneBook::chooseOption(void) const
 	return true;
 }
 
-bool	PhoneBook::checkIndex(std::string _option)
-{
-	try
-	{
-		std::stoi(_option);
-	}
-	catch (const std::invalid_argument &test)
-	{
-		std::cerr << NO_NUMBER << std::endl;
-		return false;
-	}
-	catch (const std::out_of_range &test)
-	{
-		std::cerr << OUT_RANGE << std::endl;
-		return false;
-	}
-	return true;
-}
-
 bool	PhoneBook::getOption(void)
 {
 	return safeGetline(_option);
@@ -96,9 +77,10 @@ bool	PhoneBook::setOption(void)
 				Contacts[i].showContact(i + 1);
 			return true;
 		}
-		if (!checkIndex(_option))
+		int	index = safeAtoi(_option);
+		if (index == ERROR)
 			return true;
-		Contacts[std::stoi(_option) - 1].showContact(std::stoi(_option));
+		Contacts[index - 1].showContact(index);
 		return true;
 	}
 	if (_option.empty())

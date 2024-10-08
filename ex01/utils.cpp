@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 10:05:03 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/10/02 10:41:18 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/10/08 20:17:17 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,23 @@ bool	safeGetline(std::string &str)
 		}
 	}
 	return true;
+}
+
+int safeAtoi(const std::string& str)
+{
+	for (size_t i = 0; i < str.length(); ++i)
+	{
+		if (!std::isdigit(str[i]))
+		{
+			std::cerr << NO_NUMBER << std::endl;
+			return ERROR;
+		}
+	}
+	int number = std::atoi(str.c_str());
+	if (number < 1 || number > 8)
+	{
+		std::cerr << OUT_RANGE << std::endl;
+		return ERROR;
+	}
+	return number;
 }
