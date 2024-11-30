@@ -6,14 +6,14 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 09:35:06 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/10/05 21:18:37 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/11/30 10:38:57 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 
-int main (int argc, char **argv)
+int main (int argc, char *argv[])
 {
 	std::locale	loc;
 	if (argc == 1)

@@ -6,30 +6,58 @@
 #    By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/23 09:35:11 by jgasparo          #+#    #+#              #
-#    Updated: 2024/09/23 11:27:02 by jgasparo         ###   ########.fr        #
+#    Updated: 2024/11/30 10:09:46 by jgasparo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := megaphone
+NAME 		:= megaphone
 
-CPP := c++
-CPPFLAGS := -Wall -Wextra -Werror -std=c++98
+CPP 		:= c++
+CPPFLAGS	:= -Wall -Wextra -Werror -std=c++98 -MMD
 
-SRC := megaphone.cpp
+SRC_DIR		:=	./
+OBJ_DIR		:=	.obj/
+DEP_DIR		:=	.dep/
+INC_DIR		:=	includes/
+
+SRC_FILES	:= megaphone.cpp
+
+OBJ_FILES	:=	$(SRC_FILES:.cpp=.o)
+DEP_FILES	:=	$(OBJ_FILES:.o=.d)
+
+SRC			:=	$(addprefix $(SRC_DIR), $(SRC_FILES))
+OBJ			:=	$(addprefix $(OBJ_DIR), $(OBJ_FILES))
+DEP			:=	$(addprefix $(DEP_DIR), $(DEP_FILES))
 
 all: $(NAME)
 
-$(NAME): $(SRC)
+$(NAME): $(OBJ)
 		@echo CREATING MEGAPHONE
-		@$(CPP) $(CPPFLAGS) -o $(NAME) $(SRC)
+		@$(CPP) $(CPPFLAGS) -o $(NAME) $(OBJ)
 		@sleep 1
 		@tput cuu1 dl1
 		@echo "MEGAPHONE CREATED  " 
 
+
+$(OBJ_DIR)%.o:$(SRC_DIR)%.cpp
+	@mkdir -p $(OBJ_DIR) $(DEP_DIR)
+	@$(CPP) $(CPPFLAGS) -I $(INC_DIR) -o $@ -c $<
+	@mv $(OBJ_DIR)$*.d $(DEP_DIR)
+
+-include $(DEP)
+
 clean:
+	@$(RM) -fr $(OBJ_DIR) $(DEP_DIR)
+	@echo MEGAPHONE DESTROYED BYE !
+	@sleep 1
+	@tput cuu1 dl1
+
+fclean: clean
 	@$(RM) $(NAME)
 	@echo MEGAPHONE DESTROYED BYE !
 	@sleep 1
 	@tput cuu1 dl1
 
-.PHONY : all clean
+re: fclean all
+
+.PHONY : all clean fclean re
