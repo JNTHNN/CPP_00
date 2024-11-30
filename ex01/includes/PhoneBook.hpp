@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 11:42:29 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/10/08 20:18:40 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/11/30 18:22:01 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include "utils.hpp"
 #include "Contact.hpp"
+#include <iostream>
+#include <string>
 
 class PhoneBook
 {
