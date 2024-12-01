@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:53:51 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/11/30 10:26:09 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/12/01 21:39:26 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int	Contact::getNbContact(void)
 	return _nbContact;
 }
 
-void Contact::showContact(int _index)
+void Contact::showAllContact(int _index)
 {
-	std::string* fieldDatas[3] = {&_first_name, &_last_name, &_nickname};
+	std::string fieldDatas[3] = {_first_name, _last_name, _nickname};
 
 	if (_index >= 1 && _index <= 8)
 	{
@@ -46,14 +46,38 @@ void Contact::showContact(int _index)
 		}
 		std::cout << std::setfill(' ') << std::setw(10) << _index << PIPE;
 		for (int i = 0; i < 3; i++)
-			std::cout << std::setfill(' ') << std::setw(10) << *fieldDatas[i] << PIPE;
+		{
+			std::string data = fieldDatas[i];
+			if (data.length() >= 10)
+			{
+				data.resize(9);
+				data.resize(10, '.');
+			}
+			std::cout << std::setfill(' ') << std::setw(10) << data << PIPE;
+		}
 		std::cout << std::endl;
 	}
 	else
-	{
 		std::cout << WRONG << std::endl;
-		return;
+}
+
+void Contact::showContact(int _index)
+{
+	std::string* fieldDatas[5] = {&_first_name, &_last_name, &_nickname, &_phone_number, &_secret};
+
+	if (_index >= 1 && _index <= 8)
+	{
+		if (getNbContact() < _index)
+		{
+			std::cout << NOT_FILLED << std::endl;
+			return;
+		}
+		for (int i = 0; i < 5; i++)
+			std::cout << std::setfill(' ') << std::setw(16) << _fieldNames[i] + ": " << *fieldDatas[i] << std::endl;
+		std::cout << std::endl;
 	}
+	else
+		std::cout << WRONG << std::endl;
 }
 
 bool	Contact::setContact(void)
@@ -69,14 +93,7 @@ bool	Contact::setContact(void)
 			if (fieldDatas[i]->empty())
 				std::cerr << EMPTY_FIELD << std::endl;
 			else
-			{
-				if (fieldDatas[i]->length() >= 10)
-				{
-					fieldDatas[i]->resize(9);
-					fieldDatas[i]->resize(10, '.');
-				}
 				i++;
-			}
 		}
 		system(CLEAR);
 		std::cout << SUCCESS << std::endl;

@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:39:12 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/11/30 10:25:58 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/12/01 21:23:35 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,11 @@
 #define	CHOOSE_OPTION	"CHOOSE YOUR OPTION : ADD / SEARCH / EXIT"
 #define	NO_NUMBER		"INPUT NOT AN NUMBER, TRY AGAIN"
 #define	OUT_RANGE		"INPUT NOT BETWEEN 1 AND 8 OR ALL, TRY AGAIN"
-#define	WHICH			"WHICH CONTACT DO YOU WANT TO SEE (1-8 OR ALL) ? "
+#define	WHICH			"WHICH CONTACT DO YOU WANT TO SEE (1-8) ? "
 #define	NOT_FILLED		"CONTACT NOT FILLED"
 #define	WRONG			"WRONG INDEX"
 #define	EMPTY_FIELD		"EMPTY FIELDS NOT ACCEPTED, TRY AGAIN"
+#define	NO_CONTACT		"NO CONTACT FOR THE MOMENT"
 
 bool	safeGetline(std::string &str);
 int		safeAtoi(const std::string& str);
