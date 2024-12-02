@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:39:12 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/12/01 21:23:35 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/12/02 22:24:19 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,3 +48,4 @@ bool	safeGetline(std::string &str);
 int		safeAtoi(const std::string& str);
 
 #endif
+

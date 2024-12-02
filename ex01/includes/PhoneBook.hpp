@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 11:42:29 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/12/01 21:17:52 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/12/02 22:24:16 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class PhoneBook
 		bool		getOption();
 		bool		setOption();
 		bool		getExit() const;
-		void		display(void) const;
 
 		
 	private:
@@ -38,6 +37,8 @@ class PhoneBook
 		std::string	_option;
 		static int	_index;
 		static bool	_exit;
+		
+		void		display(void) const;
 };
 
 #endif

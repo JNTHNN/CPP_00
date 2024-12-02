@@ -6,7 +6,7 @@
 #    By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/23 09:35:11 by jgasparo          #+#    #+#              #
-#    Updated: 2024/11/30 10:09:46 by jgasparo         ###   ########.fr        #
+#    Updated: 2024/12/02 22:27:16 by jgasparo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ CPPFLAGS	:= -Wall -Wextra -Werror -std=c++98 -MMD
 
 SRC_DIR		:=	./
 OBJ_DIR		:=	.obj/
-DEP_DIR		:=	.dep/
 INC_DIR		:=	includes/
 
 SRC_FILES	:= megaphone.cpp
@@ -40,14 +39,13 @@ $(NAME): $(OBJ)
 
 
 $(OBJ_DIR)%.o:$(SRC_DIR)%.cpp
-	@mkdir -p $(OBJ_DIR) $(DEP_DIR)
+	@mkdir -p $(OBJ_DIR)
 	@$(CPP) $(CPPFLAGS) -I $(INC_DIR) -o $@ -c $<
-	@mv $(OBJ_DIR)$*.d $(DEP_DIR)
 
 -include $(DEP)
 
 clean:
-	@$(RM) -fr $(OBJ_DIR) $(DEP_DIR)
+	@$(RM) -fr $(OBJ_DIR)
 	@echo MEGAPHONE DESTROYED BYE !
 	@sleep 1
 	@tput cuu1 dl1

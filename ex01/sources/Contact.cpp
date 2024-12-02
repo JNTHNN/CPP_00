@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:53:51 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/12/01 21:39:26 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/12/02 22:21:08 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void Contact::showAllContact(int _index)
 		for (int i = 0; i < 3; i++)
 		{
 			std::string data = fieldDatas[i];
-			if (data.length() >= 10)
+			if (data.length() > 10)
 			{
 				data.resize(9);
 				data.resize(10, '.');
