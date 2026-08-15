@@ -20,7 +20,6 @@ bool	safeGetline(std::string &str)
 		if (std::cin.eof())
 		{
 			std::cerr << CTRL_D << std::endl;
-			std::cin.clear();
 			return false;
 		}
 	}
